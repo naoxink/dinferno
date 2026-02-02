@@ -1,0 +1,96 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --inferno: #8b0000;
+    --purgatorio: #2e5a27;
+    --paraiso: #d4af37;
+    --line-color: #444;
+}
+
+body {
+    transition: background-color 0.8s ease; /* Transición suave para el color */
+    background-attachment: fixed;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-color-dinamico, #1a1a1a); /* Color por defecto */
+    transition: background-color 1.5s ease; /* Para que el cambio no sea brusco */
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    width: 100%;
+    z-index: 10;
+    border-bottom: 1px solid var(--line-color);
+}
+
+#roadmap-container {
+    padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* La línea vertical del camino */
+#roadmap::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--line-color);
+    transform: translateX(-50%);
+}
+
+.canto-card {
+    position: relative;
+    margin-bottom: 50px;
+    width: 100%;
+    opacity: 0.4; /* Por defecto, se ve "desactivado" */
+    transition: all 0.5s ease;
+}
+
+.canto-card.active { opacity: 1; transform: scale(1.05); }
+.canto-card.completed { opacity: 0.8; }
+
+.marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #555;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid var(--bg-color);
+    z-index: 2;
+}
+
+/* Colores dinámicos por reino */
+.infierno .marker { background-color: var(--inferno); }
+.purgatorio .marker { background-color: var(--purgatorio); }
+.paraiso .marker { background-color: var(--paraiso); }
+
+.content {
+    width: 45%;
+    padding: 15px;
+    background: rgba(30, 30, 30, 0.9); /* Un gris oscuro con ligera transparencia */
+    backdrop-filter: blur(5px); /* Efecto de cristal esmerilado muy elegante */
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Alternar lados */
+.canto-card:nth-child(odd) .content { margin-left: auto; }
+.canto-card:nth-child(even) .content { margin-right: auto; }
+
+h3 { margin-top: 0; color: #fff; }
+.meta { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
