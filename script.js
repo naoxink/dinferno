@@ -146,7 +146,7 @@ function renderizarMapa() {
             <div class="content">
                 <div class="meta">${hito.reino} - Canto ${hito.n}</div>
                 <h3>${hito.lugar}</h3>
-                <p>${hito.desc}</p>
+                <p>${isCompleted ? hito.desc : '???'}</p>
             </div>
         `;
 
