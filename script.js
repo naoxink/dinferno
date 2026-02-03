@@ -1,5 +1,5 @@
 // 1. TU PROGRESO (Modifica esto cada vez que leas)
-const MI_CANTO_ACTUAL = 6;
+const MI_CANTO_ACTUAL = 7;
 
 // 2. LA BASE DE DATOS (Añade aquí los hitos que quieras)
 const hitos = [
